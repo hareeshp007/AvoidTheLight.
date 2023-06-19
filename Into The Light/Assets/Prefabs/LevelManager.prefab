@@ -48,4 +48,4 @@ MonoBehaviour:
   GameOverScreen: {fileID: 0}
   GameWonScreen: {fileID: 0}
   LobbyScene: Lobby
-  lastsceneint: 0
+  lastsceneint: 5

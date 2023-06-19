@@ -31,19 +31,19 @@ public class LevelManager : MonoBehaviour
     }
     public void Unpause()
     {
-        SoundController.Instance.Play(Sounds.ButtonClick);
+        
         PauseScreen.SetActive(false);
         Time.timeScale = 1;
     }
     public void Restart()
     {
-        SoundController.Instance.Play(Sounds.ButtonClick);
+        
         int currScene=SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currScene);
     }
     public void LoadNextScene()
     {
-        SoundController.Instance.Play(Sounds.ButtonClick);
+        
         int currScene = SceneManager.GetActiveScene().buildIndex;
         if (currScene == lastsceneint)
         {
@@ -57,7 +57,7 @@ public class LevelManager : MonoBehaviour
     }
     public void LoadLobbyScene()
     {
-        SoundController.Instance.Play(Sounds.ButtonClick);
+        
         SceneManager.LoadScene(LobbyScene);
     }
 }

@@ -13,8 +13,6 @@ public class SoundController : MonoBehaviour
     public AudioSource SoundEffect;
     public AudioSource SoundMusic;
     [Range(0f, 1f)] public float userVolume;
-    public bool IsMute;
-    public bool MoveLoop;
     public float Volume = 1f;
 
     public SoundType[] Sounds;
@@ -41,15 +39,11 @@ public class SoundController : MonoBehaviour
         PlayMusic(global::Sounds.music);
         VolumeSlider.value = Volume;
     }
-    private void Update()
+    private void SetVolume()
     {
         SoundEffect.volume = VolumeSlider.value;
         SoundMusic.volume=VolumeSlider.value;
       
-    }
-    public void Mute(bool status)
-    {
-        IsMute = status;
     }
     public void SetVolume(float volume)
     {
@@ -60,7 +54,6 @@ public class SoundController : MonoBehaviour
 
     public void PlayMusic(Sounds sound)
     {
-        if (IsMute) return;
         AudioClip clip = getSoundClip(sound);
         if (clip != null)
         {
@@ -74,7 +67,8 @@ public class SoundController : MonoBehaviour
     }
     public void Play(Sounds sound)
     {
-        if (IsMute) return;
+        
+
         AudioClip clip = getSoundClip(sound);
         if (clip != null)
         {
@@ -85,10 +79,6 @@ public class SoundController : MonoBehaviour
         {
             Debug.LogError("Sound Clip :" + clip.name + "not found");
         }
-    }
-    public bool FootstepLoop(Sounds sounds)
-    {   MoveLoop = false;        
-        return MoveLoop;
     }
 
     private AudioClip getSoundClip(Sounds sound)

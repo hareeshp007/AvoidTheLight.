@@ -7,8 +7,10 @@ public class LevelController : MonoBehaviour
 {
     private static LevelController instance;
     public static LevelController Instance { get; private set; }
+    public string LobbyScene = "Lobby";
 
     public GameObject LevelMenu;
+    private int lastsceneint=5;
 
     private void Start()
     {
@@ -36,5 +38,31 @@ public class LevelController : MonoBehaviour
     {
         SoundController.Instance.Play(Sounds.ButtonClick);
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SoundController.Instance.Play(Sounds.ButtonClick);
+        int currScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currScene);
+    }
+    public void LoadNextScene()
+    {
+        SoundController.Instance.Play(Sounds.ButtonClick);
+        int currScene = SceneManager.GetActiveScene().buildIndex;
+        if (currScene == lastsceneint)
+        {
+            SceneManager.LoadScene(LobbyScene);
+        }
+        else
+        {
+            SceneManager.LoadScene(currScene + 1);
+        }
+
+    }
+    public void LoadLobbyScene()
+    {
+        SoundController.Instance.Play(Sounds.ButtonClick);
+        SceneManager.LoadScene(LobbyScene);
     }
 }
