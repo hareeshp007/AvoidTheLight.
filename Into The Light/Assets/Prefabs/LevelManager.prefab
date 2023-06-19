@@ -47,4 +47,5 @@ MonoBehaviour:
   PauseScreen: {fileID: 0}
   GameOverScreen: {fileID: 0}
   GameWonScreen: {fileID: 0}
-  LobbyScene: 
+  LobbyScene: Lobby
+  lastsceneint: 0

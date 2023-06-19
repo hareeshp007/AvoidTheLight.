@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Networking.Types;
 
 public class PlayerController : MonoBehaviour
 {
@@ -138,6 +139,7 @@ public class PlayerController : MonoBehaviour
     }
     public void Death()
     {
+        SoundController.Instance.Play(Sounds.PlayerDied);
         Debug.Log("Player has Died");
         levelManager.GameOver();
         this.gameObject.SetActive(false);
@@ -145,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     public void LevelCompleted()
     {
-        
+        SoundController.Instance.Play(Sounds.LevelFinished);
         levelManager.GameWon();
         this.enabled = false;
     }

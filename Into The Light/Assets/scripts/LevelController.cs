@@ -24,14 +24,17 @@ public class LevelController : MonoBehaviour
     }
     public void LoadScene(int scenenumber)
     {
+        SoundController.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(scenenumber);
     }
     public void MenuLevel()
     {
+        SoundController.Instance.Play(Sounds.ButtonClick);
         LevelMenu.gameObject.SetActive(true);
     }
     public void exit()
     {
+        SoundController.Instance.Play(Sounds.ButtonClick);
         Application.Quit();
     }
 }
